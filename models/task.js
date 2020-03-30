@@ -34,6 +34,11 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {
     sequelize,
+    hooks: {
+      beforeCreate: (Task, options) => {
+        Task.status = 'Unfinished'
+      }
+    },
     modelName: 'Task'
   })
   Task.associate = function(models) {
