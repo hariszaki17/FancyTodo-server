@@ -256,7 +256,7 @@
 
 * **Method:**
 
-  `DEL`
+  `DELETE`
   
 *  **URL Params**
 
