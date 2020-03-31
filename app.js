@@ -9,7 +9,7 @@ app.use(express.json())
 app.use('/', routers)
 app.use((err, req, res, next) => {
     console.log('error boss')
-    console.log(err.errors[0].message)
+    console.log(err)
     if(err.name == 'BadRequest') {
         return res.status(400).json({
             errors: err.errors
