@@ -20,7 +20,14 @@
 
 * **Data Params**
 
-  None
+```javascript
+ {
+     "title": "Learn REST API",
+     "description": "Learn how to create RESTful API with Express and Sequelize",
+     "status": "Unfinished",
+     "due_date": "2020-01-29"
+ }
+ ```
 
 * **Success Response:**
 
@@ -41,28 +48,6 @@
  ```javascript
  {
      "Content-Type": "application/json"
- }
- ```
-
- **Request Body:**
- ```javascript
- {
-     "title": "Learn REST API",
-     "description": "Learn how to create RESTful API with Express and Sequelize",
-     "status": "Unfinished",
-     "due_date": "2020-01-29"
-
- }
- ```
-
-  **Response:**
- ```javascript
- {
-     "id": 1,
-     "title": "Learn REST API",
-     "description": "Learn how to create RESTful API with Express and Sequelize",
-     "status": "Unfinished",
-     "due_date": "2020-01-29"
  }
  ```
  -----------------------------------------------------------------------------------
@@ -106,19 +91,6 @@
  }
  ```
 
-  **Response:**
- ```javascript
- [
-     {
-        "id": 1,
-        "title": "Learn REST API",
-        "description": "Learn how to create RESTful API with Express and Sequelize",
-        "status": "Unfinished",
-        "due_date": "2020-01-29"
-    }
- ]
- ```
-
  -----------------------------------------------------------------------------------
 
 **Mengambil detail todo berdasarkan ID (Get todo by ID)**
@@ -160,17 +132,6 @@
  }
  ```
 
-  **Response:**
- ```javascript
-{
-    "id": 1,
-    "title": "Learn REST API",
-    "description": "Learn how to create RESTful API with Express and Sequelize",
-    "status": "Unfinished",
-    "due_date": "2020-01-29"
-}
- ```
-
  -----------------------------------------------------------------------------------
 
  **Mengubah data todo (Update todo)**
@@ -193,7 +154,14 @@
 
 * **Data Params**
 
-  None
+```javascript
+ {
+     "title": "Learn REST API",
+     "description": "Learn how to create RESTful API with Express and Sequelize",
+     "status": "Finished",
+     "due_date": "2020-01-29"
+ }
+ ```
 
 * **Success Response:**
 
@@ -222,27 +190,6 @@
  }
  ```
 
- **Request Body:**
- ```javascript
- {
-     "title": "Learn REST API",
-     "description": "Learn how to create RESTful API with Express and Sequelize",
-     "status": "Finished",
-     "due_date": "2020-01-29"
-
- }
- ```
-
-  **Response:**
- ```javascript
-{
-    "id": 1,
-    "title": "Learn REST API",
-    "description": "Learn how to create RESTful API with Express and Sequelize",
-    "status": "Finished",
-    "due_date": "2020-01-29"
-}
- ```
 
  -----------------------------------------------------------------------------------
 
@@ -288,15 +235,4 @@
  {
      "Content-Type": "application/json"
  }
- ```
-
-  **Response:**
- ```javascript
-{
-    "id": 1,
-    "title": "Learn REST API",
-    "description": "Learn how to create RESTful API with Express and Sequelize",
-    "status": "Finished",
-    "due_date": "2020-01-29"
-}
  ```
