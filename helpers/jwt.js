@@ -4,4 +4,8 @@ const generateToken = (payload) => {
     return jwt.sign(payload, process.env.SECRET)
 }
 
-module.exports = { generateToken }
+const verify = (token) => {
+    return jwt.verify(token, process.env.SECRET)
+}
+
+module.exports = { generateToken, verify }

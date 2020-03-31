@@ -16,6 +16,9 @@ module.exports = (sequelize, DataTypes) => {
     get due_date() {
       return this.due_date
     }
+    get userId() {
+      return this.userId
+    }
   }
  
   Task.init({
@@ -36,7 +39,8 @@ module.exports = (sequelize, DataTypes) => {
           }
         }
       }
-    }
+    },
+    userId: DataTypes.INTEGER
   }, {
     sequelize,
     hooks: {
@@ -48,6 +52,7 @@ module.exports = (sequelize, DataTypes) => {
   })
   Task.associate = function(models) {
     // associations can be defined here
+    Task.belongsTo(models.User, { foreignKey: 'userId' })
   };
   return Task;
 };

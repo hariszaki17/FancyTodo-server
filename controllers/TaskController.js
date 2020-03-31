@@ -1,73 +1,75 @@
 const { Task } = require('../models')
 class TaskController {
-    static readAll(req, res) {
+    static readAll(req, res, next) {
         Task.findAll()
         .then((result) => {
-            res.status(200).json({
+            console.log(result)
+            return res.status(200).json({
                 tasks: result,
                 message: 'Data successfully loaded'
             })
         }).catch((err) => {
-            res.status(500).json(err)
+            return next(err)
         });
     }
 
-    static create(req, res) {
-        const { title, description, status, due_date } = req.body
+    static create(req, res, next) {
+        const { title, description, status, due_date, userId } = req.body
         Task.create({
             title,
             description,
             status,
-            due_date
+            due_date,
+            userId
         })
         .then((result) => {
-            res.status(201).json({
+            return res.status(201).json({
                 tasks: result,
                 message: 'Data successfully created'
             })
         }).catch((err) => {
-            res.status(500).json(err)
+            return next(err)
         });
     }
 
-    static delete(req, res) {
+    static delete(req, res, next) {
         const id = +req.params.id
+        let deletedData
         Task.findByPk(id)
         .then((result) => {
-            let deletedData = result
-            Task.destroy({
+            deletedData = result
+            return Task.destroy({
                 where: {
                     id: id
                 }
             })
-            .then((result) => {
-                res.status(200).json({
-                    tasks: deletedData,
-                    message: 'data successfully deleted'
-                })
-            }).catch((err) => {
-                res.status(500).json(err)
-            });
-        }).catch((err) => {
-            res.status(500).json(err)
+        })
+        .then((result) => {
+            return res.status(200).json({
+                tasks: deletedData,
+                message: 'data successfully deleted'
+            })
+        })
+        .catch((err) => {
+            return next(err)
         });
        
     }
 
-    static readOne(req, res) {
+    static readOne(req, res, next) {
         const id = +req.params.id
         Task.findByPk(id)
         .then((result) => {
-            res.status(200).json({
+            return res.status(200).json({
                 tasks: result,
                 message: 'data successfully loaded'
             })
         }).catch((err) => {
-            res.status(500).json(err)
+            return next(err)
         });
     }
 
-    static update(req, res) {
+    static update(req, res, next) {
         const id = +req.params.id
         const { title, description, status, due_date } = req.body
         Task.update({
@@ -81,12 +83,12 @@ class TaskController {
             }
         })
         .then((result) => {
-           res.status(200).json({
+           return res.status(200).json({
             tasks: result,
             message: 'data successfully updated'
            })
         }).catch((err) => {
-            res.status(500).json(err)
+            return next(err)
         });
     }
 }
