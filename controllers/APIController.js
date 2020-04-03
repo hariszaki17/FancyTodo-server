@@ -15,9 +15,7 @@ class APIController {
         })
         .then(response => {
             delete response.data.items[0].shurooq
-            for (let key in response.data.items[0]) {
-                console.log(key)
-            }
+            console.log(response.data.items[0])
             res.status(200).json({
                 data: response.data.items[0],
                 message: 'Successfully fetched'

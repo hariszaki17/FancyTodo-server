@@ -24,7 +24,6 @@
  {
      "title": "Learn REST API",
      "description": "Learn how to create RESTful API with Express and Sequelize",
-     "status": "Unfinished",
      "due_date": "2020-01-29"
  }
  ```
@@ -47,7 +46,7 @@
  **Request Header:**
  ```javascript
  {
-     "Content-Type": "application/json"
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJoYXJpc2tpMThAZ21haWwuY29tIiwiaWF0IjoxNTg1NjY3MzgzfQ.t2IFTfKLMEGi_LHVKdR_qaqczqN8tRKBg66z-sVtR5E"
  }
  ```
  -----------------------------------------------------------------------------------
@@ -87,7 +86,7 @@
  **Request Header:**
  ```javascript
  {
-     "Content-Type": "application/json"
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJoYXJpc2tpMThAZ21haWwuY29tIiwiaWF0IjoxNTg1NjY3MzgzfQ.t2IFTfKLMEGi_LHVKdR_qaqczqN8tRKBg66z-sVtR5E"
  }
  ```
 
@@ -125,10 +124,10 @@
   * **Code:** 404 NOT FOUND <br />
     **Content:** `{ error : "Task doesn't exist." }`
 
- **Request Header:**
+  **Request Header:**
  ```javascript
  {
-     "Content-Type": "application/json"
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJoYXJpc2tpMThAZ21haWwuY29tIiwiaWF0IjoxNTg1NjY3MzgzfQ.t2IFTfKLMEGi_LHVKdR_qaqczqN8tRKBg66z-sVtR5E"
  }
  ```
 
@@ -186,7 +185,7 @@
  **Request Header:**
  ```javascript
  {
-     "Content-Type": "application/json"
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJoYXJpc2tpMThAZ21haWwuY29tIiwiaWF0IjoxNTg1NjY3MzgzfQ.t2IFTfKLMEGi_LHVKdR_qaqczqN8tRKBg66z-sVtR5E"
  }
  ```
 
@@ -233,6 +232,180 @@
  **Request Header:**
  ```javascript
  {
-     "Content-Type": "application/json"
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJoYXJpc2tpMThAZ21haWwuY29tIiwiaWF0IjoxNTg1NjY3MzgzfQ.t2IFTfKLMEGi_LHVKdR_qaqczqN8tRKBg66z-sVtR5E"
  }
  ```
+ -----------------------------------------------------------------------------------
+
+ **Membuat user (Create user)**
+----
+  Returns json data about a single user that recently added.
+
+* **URL**
+
+  /users/signup
+
+* **Method:**
+
+  `POST`
+  
+*  **URL Params**
+
+   **Required:**
+ 
+   None
+
+* **Data Params**
+
+```javascript
+ {
+     "email": "sample@mail.com",
+     "password": "EF797C8118F02DFB649607DD5D3F8C7623048C9C063D532CC95C5ED7A898A64F"
+ }
+ ```
+
+* **Success Response:**
+
+  * **Code:** 201 Created <br />
+    **Content:** `{ "id": 1, "email": "sample@email.com", "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJoYXJpc2tpMThAZ21haWwuY29tIiwiaWF0IjoxNTg1NjY3MzgzfQ.t2IFTfKLMEGi_LHVKdR_qaqczqN8tRKBg66z-sVtR5E" }`
+ 
+* **Error Response:**
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br />
+    **Content:** `{ error : "Internal Server Error." }`
+
+ -----------------------------------------------------------------------------------
+
+  **Signin user**
+----
+  Returns json data about a single user that recently signed in.
+
+* **URL**
+
+  /users/signup
+
+* **Method:**
+
+  `POST`
+  
+*  **URL Params**
+
+   **Required:**
+ 
+   None
+
+* **Data Params**
+
+```javascript
+ {
+     "email": "sample@mail.com",
+     "password": "EF797C8118F02DFB649607DD5D3F8C7623048C9C063D532CC95C5ED7A898A64F"
+ }
+ ```
+
+* **Success Response:**
+
+  * **Code:** 200 Ok <br />
+    **Content:** `{ "id": 1, "email": "sample@email.com", "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJoYXJpc2tpMThAZ21haWwuY29tIiwiaWF0IjoxNTg1NjY3MzgzfQ.t2IFTfKLMEGi_LHVKdR_qaqczqN8tRKBg66z-sVtR5E" }`
+ 
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{ error : "Invalid request." }`
+
+  OR
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br />
+    **Content:** `{ error : "Internal Server Error." }`
+
+ -----------------------------------------------------------------------------------
+
+  **Signin user (google)**
+----
+  Returns json data about a single user that recently signed in or signed up.
+
+* **URL**
+
+  /users/signup
+
+* **Method:**
+
+  `POST`
+  
+*  **URL Params**
+
+   **Required:**
+ 
+   None
+
+* **Data Params**
+
+```javascript
+ {
+     "email": "sample@mail.com",
+     "password": "EF797C8118F02DFB649607DD5D3F8C7623048C9C063D532CC95C5ED7A898A64F"
+ }
+ ```
+
+* **Success Response:**
+
+  * **Code:** 201 Created <br />
+    **Content:** `{ "id": 1, "email": "sample@email.com", "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJoYXJpc2tpMThAZ21haWwuY29tIiwiaWF0IjoxNTg1NjY3MzgzfQ.t2IFTfKLMEGi_LHVKdR_qaqczqN8tRKBg66z-sVtR5E" }`
+
+    OR
+
+  * **Code:** 200 Ok <br />
+    **Content:** `{ "id": 1, "email": "sample@email.com", "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJoYXJpc2tpMThAZ21haWwuY29tIiwiaWF0IjoxNTg1NjY3MzgzfQ.t2IFTfKLMEGi_LHVKdR_qaqczqN8tRKBg66z-sVtR5E" }`
+ 
+* **Error Response:**
+
+  * **Code:** 400 BAD REQUEST <br />
+    **Content:** `{ error : "Invalid request." }`
+
+  OR
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br />
+    **Content:** `{ error : "Internal Server Error." }`
+
+ -----------------------------------------------------------------------------------
+
+**Mengambil data prayer time (Get prayer time data)**
+----
+  Returns json data about today prayer time, data fetched according to users'ip geolocation.
+
+* **URL**
+
+  /features/time
+
+* **Method:**
+
+  `GET`
+  
+*  **URL Params**
+
+   **Required:**
+ 
+  None
+
+* **Data Params**
+
+  None
+
+* **Success Response:**
+
+  * **Code:** 200 OK <br />
+    **Content:** `{ date_for: '2020-4-4', fajr: '4:37 am', dhuhr: '11:55 am', asr: '3:12 pm',maghrib: '6:01 pm', isha: '7:05 pm' }`
+ 
+* **Error Response:**
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br />
+    **Content:** `{ error : "Internal Server Error." }`
+
+  **Request Header:**
+ ```javascript
+ {
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJoYXJpc2tpMThAZ21haWwuY29tIiwiaWF0IjoxNTg1NjY3MzgzfQ.t2IFTfKLMEGi_LHVKdR_qaqczqN8tRKBg66z-sVtR5E"
+ }
+ ```
+
+ -----------------------------------------------------------------------------------
