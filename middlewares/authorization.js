@@ -13,19 +13,19 @@ const authorization = (req, res, next) => {
             } else {
                 return next({
                     name: 'Unauthorized',
-                    message: [{ message: 'User not authorized' }]
+                    errors: [{ message: 'Unauhtenticated access detected' }]
                 })
             }
         } else {
             return next({
                 name: 'NotFound',
-                message: [{ message: 'User Not Found' }]
+                errors: [{ message: 'User Not Found' }]
             })
         }
     }).catch((err) => {
         return next({
             name: 'InternalServerError',
-            message: [{ message: err }]
+            errors: [{ message: err }]
         })
     });
 }

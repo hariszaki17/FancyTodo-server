@@ -1,9 +1,22 @@
 const { Task } = require('../models')
+const { Op } = require('sequelize') 
 class TaskController {
     static readAll(req, res, next) {
-        Task.findAll()
+        let status
+        if (req.query.status == 'Finished') {
+            status = req.query.status
+        } else {
+            status = 'Unfinished'
+        }
+        Task.findAll({
+            where: {
+                [Op.and]: [
+                    { userId: req.currentUserId },
+                    { status: status }
+                ]
+            }
+        })
         .then((result) => {
-            console.log(result)
             return res.status(200).json({
                 tasks: result,
                 message: 'Data successfully loaded'
@@ -14,13 +27,13 @@ class TaskController {
     }
 
     static create(req, res, next) {
-        const { title, description, status, due_date, userId } = req.body
+        const { title, description, status, due_date } = req.body
         Task.create({
             title,
             description,
             status,
             due_date,
-            userId
+            userId: req.currentUserId
         })
         .then((result) => {
             return res.status(201).json({
@@ -82,6 +95,9 @@ class TaskController {
                 id: id
             }
         })
+        .then((result) => {
+            return Task.findByPk(id)
+        })        
         .then((result) => {
            return res.status(200).json({
             tasks: result,
