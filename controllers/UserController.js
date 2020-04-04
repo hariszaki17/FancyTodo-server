@@ -112,17 +112,19 @@ class UserController {
             }
         })
         .then((result) => {
-            console.log(email)
-            const user = {
-                id: result.id,
-                email: result.email
+            if (result) {
+                console.log(email)
+                const user = {
+                    id: result.id,
+                    email: result.email
+                }
+                const token = generateToken(user)
+                res.status(201).json({
+                    id: user.id,
+                    email: user.email,
+                    accessToken: token
+                })
             }
-            const token = generateToken(user)
-            res.status(201).json({
-                id: user.id,
-                email: user.email,
-                accessToken: token
-            })
         })
         .catch((err) => {
             next(err)

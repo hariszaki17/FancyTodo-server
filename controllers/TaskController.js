@@ -14,7 +14,10 @@ class TaskController {
                     { userId: req.currentUserId },
                     { status: status }
                 ]
-            }
+            },
+            order: [
+                ['updatedAt', 'DESC']
+            ]
         })
         .then((result) => {
             return res.status(200).json({
