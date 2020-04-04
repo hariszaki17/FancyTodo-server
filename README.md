@@ -371,7 +371,7 @@
 
 **Mengambil data prayer time (Get prayer time data)**
 ----
-  Returns json data about today prayer time, data fetched according to users'ip geolocation.
+  Returns json data about today prayer time, data fetched according to user's ip geolocation.
 
 * **URL**
 
@@ -395,6 +395,47 @@
 
   * **Code:** 200 OK <br />
     **Content:** `{ date_for: '2020-4-4', fajr: '4:37 am', dhuhr: '11:55 am', asr: '3:12 pm',maghrib: '6:01 pm', isha: '7:05 pm' }`
+ 
+* **Error Response:**
+
+  * **Code:** 500 INTERNAL SERVER ERROR <br />
+    **Content:** `{ error : "Internal Server Error." }`
+
+  **Request Header:**
+ ```javascript
+ {
+    "access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiZW1haWwiOiJoYXJpc2tpMThAZ21haWwuY29tIiwiaWF0IjoxNTg1NjY3MzgzfQ.t2IFTfKLMEGi_LHVKdR_qaqczqN8tRKBg66z-sVtR5E"
+ }
+ ```
+
+ -----------------------------------------------------------------------------------
+
+ **Mengambil data holiday (Get holiday data)**
+----
+  Returns json data about holiday time, data fetched according to user's input year.
+
+* **URL**
+
+  /features/check-holiday/:year
+
+* **Method:**
+
+  `GET`
+  
+*  **URL Params**
+
+   **Required:**
+ 
+  `year=[integer]`
+
+* **Data Params**
+
+  None
+
+* **Success Response:**
+
+  * **Code:** 200 OK <br />
+    **Content:** `{ "holidays": [{ "date": "2020-01-01", "localName": "Tahun Baru Masehi",  "name": "New Year's Day", "countryCode": "ID", "fixed": true, "global": true, "counties": null, "launchYear": null, "type": "Public" }]}`
  
 * **Error Response:**
 
