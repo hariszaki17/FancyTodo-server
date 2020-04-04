@@ -7,4 +7,3 @@ router.get('/check-holidays/:year', APIController.getHoliday)
 router.get('/time', APIController.getTimePrayer)
 
 module.exports = router
-// db16bd3dd52cf906bd4122790b289a89

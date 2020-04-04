@@ -31,17 +31,17 @@
 * **Success Response:**
 
   * **Code:** 201 Created <br />
-    **Content:** `{ "id": 1, "title": "Learn REST API", "description": "Learn how to create RESTful API with Express and Sequelize", "status": "Unfinished",     "due_date": "2020-01-29" }`
+    **Content:** `{"tasks": { "id": 36, "title": "Beli makan ikan", "description": "beli produk paling baru", "status": "Unfinished", "due_date": "2020-04-29T00:00:00.000Z", "userId": 2, "updatedAt": "2020-04-04T10:32:54.070Z", "createdAt": "2020-04-04T10:32:54.070Z"}, "message": "Data successfully created"}`
  
 * **Error Response:**
 
   * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{ error : "Invalid request." }`
+    **Content:** `{ errors : [{ message: "Invalid request."}] }`
 
   OR
 
   * **Code:** 500 INTERNAL SERVER ERROR <br />
-    **Content:** `{ error : "Internal Server Error." }`
+    **Content:** `{ errors : [{message: "Internal Server Error."}] }`
 
  **Request Header:**
  ```javascript
@@ -76,12 +76,12 @@
 * **Success Response:**
 
   * **Code:** 200 OK <br />
-    **Content:** `[ { "id": 1, "title": "Learn REST API", "description": "Learn how to create RESTful API with Express and Sequelize", "status": "Unfinished",     "due_date": "2020-01-29" } ]`
+    **Content:** `{ "tasks": [ { "id": 1, "title": "Learn REST API", "description": "Learn how to create RESTful API with Express and Sequelize", "status": "Unfinished",     "due_date": "2020-01-29" } ], "message": "Data successfully loaded" }`
  
 * **Error Response:**
 
   * **Code:** 500 INTERNAL SERVER ERROR <br />
-    **Content:** `{ error : "Internal Server Error." }`
+    **Content:** `{ errors : [{ message: "Internal Server Error."}] }`
 
  **Request Header:**
  ```javascript
@@ -117,12 +117,12 @@
 * **Success Response:**
 
   * **Code:** 200 OK <br />
-    **Content:** `{ "id": 1, "title": "Learn REST API", "description": "Learn how to create RESTful API with Express and Sequelize", "status": "Unfinished",     "due_date": "2020-01-29" }`
+    **Content:** `{ "tasks": [ { "id": 1, "title": "Learn REST API", "description": "Learn how to create RESTful API with Express and Sequelize", "status": "Unfinished",     "due_date": "2020-01-29" } ], "message": "Data successfully loaded" }`
  
 * **Error Response:**
 
   * **Code:** 404 NOT FOUND <br />
-    **Content:** `{ error : "Task doesn't exist." }`
+    **Content:** `{ errors : [{ message: "Task doesn't exist."}] }`
 
   **Request Header:**
  ```javascript
@@ -165,22 +165,22 @@
 * **Success Response:**
 
   * **Code:** 200 OK <br />
-    **Content:** `{ "id": 1, "title": "Learn REST API", "description": "Learn how to create RESTful API with Express and Sequelize", "status": "Finished",     "due_date": "2020-01-29" }`
+    **Content:** `{ "tasks": { "id": 36, "title": "Buat berita baru",    "description": "buat berita bogorkita.com", "status": "Unfinished",    "due_date": "2020-04-29T00:00:00.000Z", "userId": 2, "createdAt": "2020-04-04T10:32:54.070Z", "updatedAt": "2020-04-04T10:39:22.171Z"},  "message": "data successfully updated"}`
  
 * **Error Response:**
 
   * **Code:** 404 NOT FOUND <br />
-    **Content:** `{ error : "Error Not Found." }`
+    **Content:** `{ errors : [{ message: "Error Not Found."}]}`
 
      OR
 
   * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{ error : "Invalid request." }`
+    **Content:** `{ errors : [{ message: "Invalid request." }] }`
 
     OR
 
   * **Code:** 500 INTERNAL SERVER ERROR <br />
-    **Content:** `{ error : "Internal Server Error." }`
+    **Content:** `{ errors : [{ message: "Internal Server Error." }] }`
 
  **Request Header:**
  ```javascript
@@ -217,17 +217,17 @@
 * **Success Response:**
 
   * **Code:** 200 OK <br />
-    **Content:** `{ "id": 1, "title": "Learn REST API", "description": "Learn how to create RESTful API with Express and Sequelize", "status": "Finished",     "due_date": "2020-01-29" }`
+    **Content:** `{ tasks: {"id": 1, "title": "Learn REST API", "description": "Learn how to create RESTful API with Express and Sequelize", "status": "Finished", "due_date": "2020-01-29" }, { message: "data successfully deleted" }}`
  
 * **Error Response:**
 
   * **Code:** 404 NOT FOUND <br />
-    **Content:** `{ error : "Error Not Found." }`
+    **Content:** `{ errors : [{ message: "Error Not Found."}] }`
 
     OR
 
   * **Code:** 500 INTERNAL SERVER ERROR <br />
-    **Content:** `{ error : "Internal Server Error." }`
+    **Content:** `{ errors : [{ message: "Internal Server Error." }] }`
 
  **Request Header:**
  ```javascript
@@ -272,7 +272,7 @@
 * **Error Response:**
 
   * **Code:** 500 INTERNAL SERVER ERROR <br />
-    **Content:** `{ error : "Internal Server Error." }`
+    **Content:** `{ errors : "Internal Server Error." }`
 
  -----------------------------------------------------------------------------------
 
@@ -311,12 +311,12 @@
 * **Error Response:**
 
   * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{ error : "Invalid request." }`
+    **Content:** `{ errors : [{ message: "Invalid request."}] }`
 
   OR
 
   * **Code:** 500 INTERNAL SERVER ERROR <br />
-    **Content:** `{ error : "Internal Server Error." }`
+    **Content:** `{ errors : [{ message: "Internal Server Error." }] }`
 
  -----------------------------------------------------------------------------------
 
@@ -360,12 +360,12 @@
 * **Error Response:**
 
   * **Code:** 400 BAD REQUEST <br />
-    **Content:** `{ error : "Invalid request." }`
+    **Content:** `{ errors : [{ message: "Invalid request." }] }`
 
   OR
 
   * **Code:** 500 INTERNAL SERVER ERROR <br />
-    **Content:** `{ error : "Internal Server Error." }`
+    **Content:** `{ errors : [{ message: "Internal Server Error." }] }`
 
  -----------------------------------------------------------------------------------
 
@@ -399,7 +399,7 @@
 * **Error Response:**
 
   * **Code:** 500 INTERNAL SERVER ERROR <br />
-    **Content:** `{ error : "Internal Server Error." }`
+    **Content:** `{ errors : [{ message: "Internal Server Error." }] }`
 
   **Request Header:**
  ```javascript
@@ -440,7 +440,7 @@
 * **Error Response:**
 
   * **Code:** 500 INTERNAL SERVER ERROR <br />
-    **Content:** `{ error : "Internal Server Error." }`
+    **Content:** `{ errors : [{ message: "Internal Server Error." }] }`
 
   **Request Header:**
  ```javascript
