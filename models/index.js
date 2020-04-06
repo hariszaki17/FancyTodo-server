@@ -9,13 +9,12 @@ const config = require(__dirname + '/../config/config.json')[env];
 const db = {};
 
 let sequelize;
-console.log(config, '  haoiiiiiiiiiiiiiiiiiiiiii')
+console.log(process.env.DATABASE_URL)
+console.log(process.env[config.use_env_variable])
 if (process.env.DATABASE_URL) {
-  console.log('tessssssssstttt')
-  sequelize = new Sequelize(process.env[config.use_env_variabel], {
-    dialect: "postgres",
-    protocol: "postgres"
-
+  sequelize = new Sequelize(process.env[config.use_env_variable], {
+    dialect: 'postgres',
+    protocol: 'postgres'
   });
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
