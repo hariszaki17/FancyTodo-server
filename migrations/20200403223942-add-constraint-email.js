@@ -11,4 +11,4 @@ module.exports = {
   down: (queryInterface, Sequelize) => {
     return queryInterface.removeConstraint('Users', ['email'], {})
   }
-};
+}
