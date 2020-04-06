@@ -11,6 +11,7 @@ const db = {};
 let sequelize;
 console.log(config, '  haoiiiiiiiiiiiiiiiiiiiiii')
 if (process.env.DATABASE_URL) {
+  console.log('tessssssssstttt')
   sequelize = new Sequelize(process.env[config.use_env_variabel], {
     dialect: "postgres",
     protocol: "postgres"
